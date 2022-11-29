@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  dso-devel:
+    image: dso-devel:latest
+    container_name: dso-devel
+    environment:
+      - LC_ALL=C.UTF-8
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    stdin_open: true
+    tty: true
+    volumes:
+      - /home/arketi/projects/data:/home/data
+    cap_add:
+      - SYS_ADMIN
